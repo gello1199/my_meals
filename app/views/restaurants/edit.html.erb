@@ -1,0 +1,7 @@
+<h1>Edit a Restaurant</h1>
+
+<%= form_for :restaurant do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br><br>
+<%= f.submit "Submit Changes" %>
+<% end %>

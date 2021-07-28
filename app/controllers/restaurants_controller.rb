@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.find(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:id])
     end
 
     def new
@@ -19,11 +19,11 @@ class RestaurantsController < ApplicationController
     end
 
     def edit
-        @restaurant = Party.find(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:id])
     end
 
     def update
-        @restaurant = Party.find(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:id])
         @restaurant.update(restaurant_params)
         redirect_to restaurant_path(@restaurant)
     end
