@@ -1,7 +1,11 @@
 class RestaurantsController < ApplicationController
 
     def index
-        @restaurants = Restaurant.all
+        if params[:meal_id] && @meal = Meal.find_by_id[:meal_id]
+            @restaurants = Restaurant.meal
+        else
+            @restaurants = Restaurant.all
+        end
     end
 
     def show
@@ -29,7 +33,9 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-
+        @restaurant = Restaurant.find_by_id[:params[:id]]
+        @restaurant.destroy
+        redirect_to restaurants_path
     end
 
     private
