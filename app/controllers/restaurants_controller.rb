@@ -20,7 +20,6 @@ class RestaurantsController < ApplicationController
     end
 
     def create
-        # byebug
         @restaurant = Restaurant.new(restaurant_params)
         if @restaurant.save
         redirect_to restaurants_path

@@ -11,12 +11,15 @@
   </head>
 
 <div>
-<ul>
-<li> <%= link_to "Home", '/' %> </li>
-<li> <%= link_to "Restaurants", restaurants_path %> </li>
-<li> <%= link_to "Meals", meals_path %> </li>
-<li> <%= link_to "Logout", logout_path, method: 'delete' %> </li>
-</ul>
+<%= link_to "Home", '/' %>
+<%= link_to "Restaurants", restaurants_path %>
+<%= link_to "Meals", meals_path %>
+<% if !logged_in? %>
+<%= link_to "Signup", signup_path %>
+<%= link_to "Login", login_path %>
+<% else %>
+<%= link_to "Logout", logout_path, method: 'delete' %>
+<% end %>
 </div>
   <body>
     <%= yield %>
