@@ -14,12 +14,19 @@ class RestaurantsController < ApplicationController
 
     def new
         @restaurant = Restaurant.new
+        @restaurant.build_location
+        @restaurant.meals.build
+        # @restaurant.reviews.build
     end
 
     def create
+        # byebug
         @restaurant = Restaurant.new(restaurant_params)
-        @restaurant.save
+        if @restaurant.save
         redirect_to restaurants_path
+        else 
+            render :new
+        end
     end
 
     def edit
@@ -41,7 +48,7 @@ class RestaurantsController < ApplicationController
     private
 
     def restaurant_params
-        params.require(:restaurant).permit(:name, :location_id, :meal_id, :review_id, location_attributes: [:name], meal_attributes: [:name], review_attributes: [:title, :comment, :rating])
+        params.require(:restaurant).permit(:name, :location_id, location_attributes: [:name], meals_attributes: [:name])
     end
 
 end

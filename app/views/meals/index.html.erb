@@ -2,7 +2,7 @@
 
 <ul>
 <% @meals.each do |f| %>
-<li> <%= f.name %> </li>
+<li> <%= f.name %> - <%= f.restaurant.name %> </li>
 <% end %>
 </ul>
 
