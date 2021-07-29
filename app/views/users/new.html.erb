@@ -1,3 +1,5 @@
+<h1>Sign Up Page</h1>
+
 <%= form_for(@user, url: signup_path) do |f| %>
 
 <%= f.label :email %>
@@ -10,7 +12,7 @@
 <%= f.text_field :first_name %><br><br>
 
 <%= f.label :last_name %>
-<%= f.text_field :lasst_name %><br><br>
+<%= f.text_field :last_name %><br><br>
 
 <%= f.submit "Sign Up" %>
 
