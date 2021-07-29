@@ -3,5 +3,35 @@
 <%= form_for @restaurant do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %><br><br>
+
+
+<h3> Pick a Location </h3>
+<%= f.collection_select :location_id, Location.all, :id, :name %>
+
+<h3> Add a New Location </h3>
+<%= f.fields_for :location do |l| %>
+<%= l.label :name %>
+<%= l.text_field :name %><br><br>
+<% end %>
+
+<h3> Pick a Meal </h3>
+<%# <%= f.collection_select :meal_id, Meal.all, :id, :name %>
+
+<h3> Add a New Meal </h3>
+<%= f.fields_for :meal do |m| %>
+<%= m.label :name %>
+<%= m.text_field :name %><br><br>
+<% end %>
+
+<h3> Add a New Review </h3>
+<%= f.fields_for :review do |r| %>
+<%= r.label :title %>
+<%= r.text_field :title %><br><br>
+<%= r.label :comment %>
+<%= r.text_area :comment %><br><br>
+<%= r.label :rating %>
+<%= r.text_field :rating %><br><br>
+<% end %>
+
 <%= f.submit "Create" %>
 <% end %>
