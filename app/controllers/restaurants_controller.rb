@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+    before_action :redirect_if_not_logged_in?
 
     def index
         if params[:meal_id] && @meal = Meal.find_by_id[:meal_id]
