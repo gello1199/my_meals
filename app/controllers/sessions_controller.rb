@@ -19,4 +19,8 @@ class SessionsController < ApplicationController
         redirect_to restaurants_path
     end
 
+    def welcome
+      render layout: "homepage"
+    end
+
 end
