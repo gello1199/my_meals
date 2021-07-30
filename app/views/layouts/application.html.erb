@@ -10,10 +10,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<div>
-<%= link_to "Home", '/' %>
-<%= link_to "Restaurants", restaurants_path %>
-<%= link_to "Meals", meals_path %>
+
+  <body>
+
+  <div>
+<%= link_to "Home",  %>
+<%= link_to "MyProfile", restaurants_path %>
 <% if !logged_in? %>
 <%= link_to "Signup", signup_path %>
 <%= link_to "Login", login_path %>
@@ -21,7 +23,14 @@
 <%= link_to "Logout", logout_path, method: 'delete' %>
 <% end %>
 </div>
-  <body>
+<br>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
+
     <%= yield %>
   </body>
 </html>
