@@ -1,2 +1,6 @@
 <h1>MyMeals Dashboard</h1>
 <h1>Welcome <%= @user.first_name %> </h1>
+<% @user.restaurants.each do |r|  %>
+<h3>Your Restaurants: </h3>
+<%= link_to r.name, restaurant_path(r) %>
+<% end %>

@@ -40,6 +40,10 @@ class SessionsController < ApplicationController
       render layout: "homepage"
     end
 
+    def signup
+        render layout: "signup"
+    end
+
     def auth
         request.env['omniauth.auth']
       end

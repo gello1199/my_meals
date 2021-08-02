@@ -11,6 +11,7 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by_id(params[:id])
+        # byebug
     end
 
     def new
@@ -22,6 +23,9 @@ class RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
+        @restaurant.meals.each do |m|
+            m.user = current_user
+        end
         if @restaurant.save
         redirect_to restaurants_path
         else 

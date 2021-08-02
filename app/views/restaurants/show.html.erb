@@ -6,6 +6,7 @@
 <h3>Review: <%= r.title %></h3>
 <h4>Comment: <%= r.comment %> </h4>
 <h3>Rating: <%= r.rating %> </h3>
+<% end %>
 
 <% @restaurant.meals.each do |m| %>
 <h3>MyMeals ;) </h3>
@@ -19,4 +20,3 @@
 <%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: 'destroy' %> <br><br>
 
 <%= link_to "Create a new Meal", new_restaurant_meal_path(@restaurant) %>
-<% end %>
