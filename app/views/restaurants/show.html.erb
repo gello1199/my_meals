@@ -16,5 +16,7 @@
 
 <%= link_to "Edit Restaurant", edit_restaurant_path %><br><br>
 
+<%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: 'destroy' %> <br><br>
+
 <%= link_to "Create a new Meal", new_restaurant_meal_path(@restaurant) %>
 <% end %>
