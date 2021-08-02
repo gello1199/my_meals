@@ -16,7 +16,13 @@ class SessionsController < ApplicationController
 
     def omniauth
         # byebug
-        user = User.find_or_create_by(request.env['omniauth.auth'])
+        user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])do |u|
+        # byebug
+        u.email = auth[:info][:email]
+        u.first_name = auth[:info][:name]
+        u.password = SecureRandom.hex(15)
+        end
+        # byebug
         if user.valid?
             session[:user_id] = user.id
             redirect_to user_path(user)
@@ -34,8 +40,8 @@ class SessionsController < ApplicationController
       render layout: "homepage"
     end
 
-    # def auth_hash
-    #     request.env['omniauth.auth']
-    #   end
+    def auth
+        request.env['omniauth.auth']
+      end
 
 end
