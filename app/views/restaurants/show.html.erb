@@ -9,14 +9,14 @@
 <% end %>
 
 <% @restaurant.meals.each do |m| %>
-<h3>MyMeals ;) </h3>
+<h3>MyMeals: </h3>
 <ul>
 <li> <%= link_to m.name, restaurant_meal_path(@restaurant, m) %> </li>
 </ul>
 <% end %>
 
+<%= link_to "Add a New Meal", new_restaurant_meal_path(@restaurant) %><br><br>
+
 <%= link_to "Edit Restaurant", edit_restaurant_path %><br><br>
 
 <%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: 'delete' %> <br><br>
-
-<%= link_to "Create a new Meal", new_restaurant_meal_path(@restaurant) %>

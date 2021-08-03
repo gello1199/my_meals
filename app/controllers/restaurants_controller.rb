@@ -26,6 +26,7 @@ class RestaurantsController < ApplicationController
         @restaurant.meals.each do |m|
             m.user = current_user
         end
+        # byebug
         if @restaurant.save
         redirect_to restaurants_path
         else 
@@ -39,8 +40,11 @@ class RestaurantsController < ApplicationController
 
     def update
         @restaurant = Restaurant.find_by_id(params[:id])
-        @restaurant.update(restaurant_params)
-        redirect_to restaurant_path(@restaurant)
+        if @restaurant.update(restaurant_params)
+            redirect_to restaurant_path(@restaurant)
+        else
+            render :edit
+        end
     end
 
     def destroy

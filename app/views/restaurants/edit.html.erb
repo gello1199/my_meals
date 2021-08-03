@@ -8,13 +8,13 @@
 <h3> Pick a Location </h3>
 <%= f.collection_select :location_id, Location.all, :id, :name %>
 
-<h3> Add a New Location </h3>
+<h3> Edit Location </h3>
 <%= f.fields_for :location do |l| %>
 <%= l.label :name %>
 <%= l.text_field :name %><br><br>
 <% end %>
 
-<h3> Add a New Meal </h3>
+<h3> Edit Meal </h3>
 <%= f.fields_for :meals do |m| %>
 <%= m.label :name %>
 <%= m.text_field :name %><br><br>

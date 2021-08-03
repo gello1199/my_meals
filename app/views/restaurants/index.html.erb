@@ -2,7 +2,7 @@
 
 <ul>
 <% @restaurants.each do |f| %>
-<li> <%= link_to f.name, restaurant_path(f) %> - <%= link_to f.location.name, location_path(f) %> </li>
+<li> <%= link_to f.name, restaurant_path(f) %> - <%= f.location.name %> </li>
 <% end %>
 </ul>
 
