@@ -3,7 +3,7 @@
 
 <h3>Your Restaurants:</h3>
 <ul>
-<% @user.restaurants.each do |r| %>
+<% @user.restaurants.uniq.each do |r| %>
 <li> <%= link_to r.name, restaurant_path(r) %> </li>
 
 <% end %>

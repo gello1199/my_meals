@@ -1,6 +1,7 @@
 <h1>Create a New Meal</h1>
 
-<%= form_for @meal do |f| %>
+<%= form_for ([@restaurant, @meal]) do |f| %>
+<%= f.hidden_field :restaurant_id, value: @restaurant.id %>
 <%= f.label :name %>
 <%= f.text_field :name %><br><br>
 <%= f.label :description %>

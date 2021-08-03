@@ -3,6 +3,11 @@ class MealsController < ApplicationController
 
 
     def index
+        # if params[:restaurant_id] && @restaurant = Restaurant.find_by_id[:restaurant_id]
+        #     @meals = Meal.restaurants
+        # else
+        # @meals = Meal.all
+        # end
         @meals = Meal.all
     end
 
@@ -11,14 +16,19 @@ class MealsController < ApplicationController
     end
 
     def new
-        @meal = Meal.new
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @meal = @restaurant.meals.build
     end
 
     def create
         @meal = Meal.new(meal_params)
-        # @meal.user = current_user
+        @meal.user = current_user
+        if params[:restaurant_id]
+            @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        end
+        # byebug
         @meal.save
-        redirect_to meals_path
+        redirect_to restaurant_meal_path(@restaurant, @meal)
     end
 
     def edit
@@ -43,6 +53,6 @@ class MealsController < ApplicationController
     private
 
     def meal_params
-        params.require(:meal).permit(:name)
+        params.require(:meal).permit(:name, :description, :restaurant_id)
     end
 end

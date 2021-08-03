@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/signup', to: 'users#create'
   resources :reviews
   resources :locations
-  resources :meals, only: [:new, :index, :create, :show]
+  resources :meals, only: [:index, :show]
   resources :restaurants do 
     resources :meals, only: [:new, :index, :create, :show]
   end

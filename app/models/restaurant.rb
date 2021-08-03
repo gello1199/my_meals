@@ -3,8 +3,10 @@ class Restaurant < ApplicationRecord
     has_many :users, through: :meals
     has_many :reviews, through: :meals
     belongs_to :location
+    validates :name, presence: true
+    validates :location_id, presence: true
 
-    accepts_nested_attributes_for :location, :meals
+    accepts_nested_attributes_for :meals
 
     def location_attributes=(location_hash)
     # byebug

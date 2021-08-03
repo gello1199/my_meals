@@ -8,8 +8,8 @@
 <h3>Rating: <%= r.rating %> </h3>
 <% end %>
 
-<% @restaurant.meals.each do |m| %>
 <h3>MyMeals: </h3>
+<% @restaurant.meals.each do |m| %>
 <ul>
 <li> <%= link_to m.name, restaurant_meal_path(@restaurant, m) %> </li>
 </ul>

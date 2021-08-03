@@ -2,11 +2,7 @@ class RestaurantsController < ApplicationController
     before_action :redirect_if_not_logged_in?
 
     def index
-        if params[:meal_id] && @meal = Meal.find_by_id[:meal_id]
-            @restaurants = Restaurant.meal
-        else
             @restaurants = Restaurant.all
-        end
     end
 
     def show
@@ -23,6 +19,7 @@ class RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
+        @restaurant.build_location
         @restaurant.meals.each do |m|
             m.user = current_user
         end
@@ -40,6 +37,7 @@ class RestaurantsController < ApplicationController
 
     def update
         @restaurant = Restaurant.find_by_id(params[:id])
+        # byebug
         if @restaurant.update(restaurant_params)
             redirect_to restaurant_path(@restaurant)
         else
@@ -56,7 +54,7 @@ class RestaurantsController < ApplicationController
     private
 
     def restaurant_params
-        params.require(:restaurant).permit(:name, :location_id, location_attributes: [:name], meals_attributes: [:name, :description])
+        params.require(:restaurant).permit(:name, :location_id, location_attributes: [:name], meals_attributes: [:name, :description, :id])
     end
 
 end
