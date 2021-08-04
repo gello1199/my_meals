@@ -13,6 +13,7 @@ class MealsController < ApplicationController
 
     def show
         @meal = Meal.find_by_id(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
     end
 
     def new
@@ -46,8 +47,10 @@ class MealsController < ApplicationController
 
     def destroy
         @meal = Meal.find_by_id(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        # byebug
         @meal.destroy
-        redirect_to meals_path
+        redirect_to restaurant_path(@restaurant)
     end
 
     private

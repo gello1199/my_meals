@@ -8,10 +8,13 @@ class Restaurant < ApplicationRecord
 
     accepts_nested_attributes_for :meals
 
+    # scope :order_by_location, -> {order(:location)}
+
     def location_attributes=(location_hash)
     # byebug
         if !location_hash[:name].blank?
             self.location = Location.find_or_create_by(location_hash)
+            # byebug
         end
     end
 

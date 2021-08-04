@@ -4,3 +4,7 @@ Name: <%= @meal.name %><br>
 Description:<%= @meal.description %>
 </p>
 
+<%= link_to "Delete Meal", restaurant_meal_path(@restaurant, @meal), method: 'delete' %> <br><br>
+
+
+
