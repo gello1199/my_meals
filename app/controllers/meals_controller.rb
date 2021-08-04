@@ -34,12 +34,15 @@ class MealsController < ApplicationController
 
     def edit
         @meal = Meal.find_by_id(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
     end
 
     def update
+        # byebug
         @meal = Meal.find_by_id(params[:id])
+        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
          if @meal.update(meal_params)
-            redirect_to meal_params(@meal)
+            redirect_to restaurant_meal_path(@restaurant, @meal)
          else
             render :edit
          end
