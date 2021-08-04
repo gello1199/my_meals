@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :redirect_if_not_authorized, only: [:show]
+
 
     def new
         @user = User.new
