@@ -13,9 +13,8 @@
 
   <body>
 
-  <div class="container">
+  <div class="scrollmenu">
 
-  <nav>
 
   <% if !logged_in? %>
     <%= link_to "Signup", signup_path %>
@@ -26,7 +25,6 @@
     <%= link_to "Restaurants", restaurants_path %>
     <%= link_to "Logout", logout_path, method: 'delete' %>
   <% end %>
-<nav>
 
 </div>
 <br>
