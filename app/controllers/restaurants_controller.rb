@@ -20,7 +20,6 @@ class RestaurantsController < ApplicationController
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
-        @restaurant.build_location
         @restaurant.meals.each do |m|
             m.user = current_user
         end
@@ -28,6 +27,7 @@ class RestaurantsController < ApplicationController
         if @restaurant.save
         redirect_to restaurants_path
         else 
+            @restaurant.build_location
             render :new
         end
     end
