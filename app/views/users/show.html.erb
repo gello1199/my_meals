@@ -2,6 +2,9 @@
 <h1>Welcome <%= @user.first_name %> </h1>
 
 <h3>Your Restaurants:</h3>
+<% if @user.restaurants.empty? %>
+<h3>You haven't entered any restaurants yet!</h3>
+<% end %>
 <ul>
 <% @user.restaurants.uniq.each do |r| %>
 <li> <%= link_to r.name, restaurant_path(r) %> - <%= r.location.name %> </li>

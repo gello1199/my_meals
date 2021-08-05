@@ -41,4 +41,12 @@
       float: right;
   }
   
+  .topnav-left {
+    width: 10%;
+  }
+
+  .topnav-left img {
+    width: 100%;
+    height: auto;
+  }
 
