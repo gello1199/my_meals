@@ -1,14 +1,15 @@
 class Restaurant < ApplicationRecord
     has_many :meals, dependent: :destroy
     has_many :users, through: :meals
-    has_many :reviews, through: :meals
+    # has_many :reviews, through: :meals
     belongs_to :location
     validates :name, presence: true
 
     accepts_nested_attributes_for :meals
 
-    # scope :order_by_location, -> {order(location: :name)}
-    # scope :order_by_location, -> {where(location: :asc)}
+
+    scope :order_by_location, -> {find_by_sql("SELECT * FROM locations INNER JOIN restaurants ON locations.id = restaurants.location_id ORDER BY locations.name")}
+    
 
     def location_attributes=(location_hash)
     # byebug

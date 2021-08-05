@@ -1,9 +1,10 @@
 <%= link_to "<-- Back to Restaurant", restaurant_path(@restaurant) %> <br>
 
 <h1>Meals</h1>
+
 <p>
-Name: <%= @meal.name %><br>
-Description:<%= @meal.description %>
+    Name: <%= @meal.name %><br>
+    Description:<%= @meal.description %>
 </p>
 
 <%= link_to "Edit Meal", edit_restaurant_meal_path(@restaurant, @meal) %><br><br>

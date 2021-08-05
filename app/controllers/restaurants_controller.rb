@@ -2,8 +2,7 @@ class RestaurantsController < ApplicationController
     before_action :redirect_if_not_logged_in?
 
     def index
-        @restaurants = Restaurant.all
-            # @restaurants = Restaurant.order_by_location
+        @restaurants = Restaurant.order_by_location
     end
 
     def show

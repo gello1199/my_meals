@@ -4,6 +4,5 @@ class Location < ApplicationRecord
     validates :name, presence: true
     # validates :name, uniqueness: true
 
-        # scope :order_by_location, -> (:name)
 
 end
