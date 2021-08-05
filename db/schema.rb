@@ -34,15 +34,6 @@ ActiveRecord::Schema.define(version: 2021_07_30_181343) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.text "title"
-    t.text "comment"
-    t.integer "rating"
-    t.integer "meal_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"

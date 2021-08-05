@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
-  resources :reviews
   resources :locations
   resources :meals, only: [:index, :show]
   resources :restaurants do 
