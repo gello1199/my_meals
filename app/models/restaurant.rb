@@ -7,7 +7,8 @@ class Restaurant < ApplicationRecord
 
     accepts_nested_attributes_for :meals
 
-    # scope :order_by_location, -> {order(:location)}
+    # scope :order_by_location, -> {order(location: :name)}
+    # scope :order_by_location, -> {where(location: :asc)}
 
     def location_attributes=(location_hash)
     # byebug

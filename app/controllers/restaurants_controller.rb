@@ -15,7 +15,6 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.new
         @restaurant.build_location
         @restaurant.meals.build
-        # @restaurant.reviews.build
     end
 
     def create

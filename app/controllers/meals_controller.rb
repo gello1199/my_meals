@@ -3,11 +3,6 @@ class MealsController < ApplicationController
 
 
     def index
-        # if params[:restaurant_id] && @restaurant = Restaurant.find_by_id[:restaurant_id]
-        #     @meals = Meal.restaurants
-        # else
-        # @meals = Meal.all
-        # end
         @meals = Meal.all
     end
 
