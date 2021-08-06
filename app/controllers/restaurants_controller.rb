@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
     before_action :redirect_if_not_logged_in?
+    before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
     def index
         @restaurants = Restaurant.order_by_location
@@ -14,7 +15,6 @@ class RestaurantsController < ApplicationController
 
 
     def show
-        @restaurant = Restaurant.find(params[:id])
         # byebug
     end
 
@@ -39,11 +39,9 @@ class RestaurantsController < ApplicationController
     end
 
     def edit
-        find_restaurant
     end
 
     def update
-        find_restaurant
         # byebug
         if @restaurant.update(restaurant_params)
             redirect_to restaurant_path(@restaurant)
@@ -53,7 +51,6 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-        find_restaurant
         @restaurant.destroy
         redirect_to restaurants_path
     end
@@ -65,7 +62,7 @@ class RestaurantsController < ApplicationController
     end
 
     def find_restaurant
-        @restaurant = Restaurant.find_by_id(params[:id])
+        @restaurant = Restaurant.find(params[:id])
     end
 
 end

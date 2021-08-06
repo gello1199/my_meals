@@ -1,5 +1,6 @@
 class MealsController < ApplicationController
     before_action :redirect_if_not_logged_in?
+    before_action :find_meal, only: [:show, :edit, :update, :destroy]
 
 
     def index
@@ -7,7 +8,6 @@ class MealsController < ApplicationController
     end
 
     def show
-        @meal = Meal.find(params[:id])
         @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
@@ -31,14 +31,12 @@ class MealsController < ApplicationController
     end
 
     def edit
-        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         meal_restrictions
     end
 
     def update
         # byebug
-        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
          if @meal.update(meal_params)
             redirect_to restaurant_meal_path(@restaurant, @meal)
@@ -48,7 +46,6 @@ class MealsController < ApplicationController
     end
 
     def destroy
-        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         # byebug
         @meal.destroy
@@ -68,7 +65,7 @@ class MealsController < ApplicationController
     end
 
     def find_meal
-        @meal = Meal.find_by_id(params[:id])
+        @meal = Meal.find(params[:id])
     end
 
 end
