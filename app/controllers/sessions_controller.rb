@@ -15,14 +15,7 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        # byebug
-        user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])do |u|
-        # byebug
-        u.email = auth[:info][:email]
-        u.first_name = auth[:info][:name]
-        u.password = SecureRandom.hex(15)
-        end
-        # byebug
+        user = User.from_omniauth(auth)
         if user.valid?
             session[:user_id] = user.id
             redirect_to user_path(user)
