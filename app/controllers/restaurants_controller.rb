@@ -3,7 +3,15 @@ class RestaurantsController < ApplicationController
 
     def index
         @restaurants = Restaurant.order_by_location
+
+        @restaurants = Restaurant.location.where(["name LIKE ?","%#{params[:name]}%"])
+        if @restaurants.empty?
+            redirect_to restaurants_path
+        else
+            redirect_to restaurant_path(@restaurant)
+        end 
     end
+
 
     def show
         @restaurant = Restaurant.find(params[:id])
@@ -31,11 +39,11 @@ class RestaurantsController < ApplicationController
     end
 
     def edit
-        @restaurant = Restaurant.find_by_id(params[:id])
+        find_restaurant
     end
 
     def update
-        @restaurant = Restaurant.find_by_id(params[:id])
+        find_restaurant
         # byebug
         if @restaurant.update(restaurant_params)
             redirect_to restaurant_path(@restaurant)
@@ -45,7 +53,7 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-        @restaurant = Restaurant.find_by_id(params[:id])
+        find_restaurant
         @restaurant.destroy
         redirect_to restaurants_path
     end
@@ -54,6 +62,10 @@ class RestaurantsController < ApplicationController
 
     def restaurant_params
         params.require(:restaurant).permit(:name, :location_id, location_attributes: [:name], meals_attributes: [:name, :description, :id])
+    end
+
+    def find_restaurant
+        @restaurant = Restaurant.find_by_id(params[:id])
     end
 
 end

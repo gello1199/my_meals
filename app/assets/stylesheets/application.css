@@ -50,3 +50,7 @@
     height: auto;
   }
 
+  .error_message {
+    color: red;
+  }
+

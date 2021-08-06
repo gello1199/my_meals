@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def record_not_found
-        redirect_to restaurants_path
+        redirect_to restaurants_path, notice: "Page Not Found"
     end
 
 

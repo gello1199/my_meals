@@ -31,14 +31,14 @@ class MealsController < ApplicationController
     end
 
     def edit
-        @meal = Meal.find_by_id(params[:id])
+        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         meal_restrictions
     end
 
     def update
         # byebug
-        @meal = Meal.find_by_id(params[:id])
+        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
          if @meal.update(meal_params)
             redirect_to restaurant_meal_path(@restaurant, @meal)
@@ -48,7 +48,7 @@ class MealsController < ApplicationController
     end
 
     def destroy
-        @meal = Meal.find_by_id(params[:id])
+        find_meal
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         # byebug
         @meal.destroy
@@ -65,6 +65,10 @@ class MealsController < ApplicationController
         if @meal.user != current_user
             redirect_to restaurant_meal_path(@restaurant, @meal)
         end
+    end
+
+    def find_meal
+        @meal = Meal.find_by_id(params[:id])
     end
 
 end

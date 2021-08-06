@@ -1,5 +1,11 @@
 <h1>All Restaurants</h1>
 
+<%= form_tag "/restaurants", method: :get do %>
+  <%= label_tag :search_by_location, "Search for:" %>
+  <%= text_field_tag :search_by_location, params[:search_by_location] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
 <ul>
 <% @restaurants.each do |f| %>
 <li> <%= link_to f.name, restaurant_path(f) %> - <%= f.location.name %> </li>
