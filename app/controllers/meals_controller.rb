@@ -23,8 +23,11 @@ class MealsController < ApplicationController
             @restaurant = Restaurant.find_by_id(params[:restaurant_id])
         end
         # byebug
-        @meal.save
+        if @meal.save
         redirect_to restaurant_meal_path(@restaurant, @meal)
+        else
+            render :new
+        end
     end
 
     def edit

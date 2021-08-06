@@ -1,10 +1,8 @@
 class Restaurant < ApplicationRecord
     has_many :meals, dependent: :destroy
     has_many :users, through: :meals
-    # has_many :reviews, through: :meals
     belongs_to :location
     validates :name, presence: true
-
     accepts_nested_attributes_for :meals
 
 
@@ -22,5 +20,6 @@ class Restaurant < ApplicationRecord
     def cap_name(location)
         location[:name].split(" ").map {|n| n.capitalize}.join(" ")
     end
+    #make it a before_save method
 
 end

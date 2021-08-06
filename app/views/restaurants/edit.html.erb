@@ -1,26 +1,8 @@
 <h1>Edit a Restaurant</h1>
 
 <%= form_for @restaurant do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %><br><br>
+<%= render partial: 'form', locals: {f: f} %>
 
-
-<h3> Pick a Location </h3>
-<%= f.collection_select :location_id, Location.all, :id, :name %>
-
-<h3> Edit Location </h3>
-<%= f.fields_for :location do |l| %>
-<%= l.label :name %>
-<%= l.text_field :name %><br><br>
-<% end %>
-
-<!-- <h3> Edit Meal </h3>
-<%= f.fields_for :meals do |m| %>
-<%= m.label :name %>
-<%= m.text_field :name %><br><br>
-<%= m.label :description %>
-<%= m.text_field :description %><br><br>
-<% end %> -->
 
 <%= f.submit "Submit Changes" %>
 <% end %>

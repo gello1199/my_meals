@@ -7,9 +7,10 @@
     Description:<%= @meal.description %>
 </p>
 
+<% if @meal.user == current_user %>
+
 <%= link_to "Edit Meal", edit_restaurant_meal_path(@restaurant, @meal) %><br><br>
 
-<% if @meal.user == current_user %>
 <%= link_to "Delete Meal", restaurant_meal_path(@restaurant, @meal), method: 'delete' %> <br><br>
 <% end %>
 

@@ -1,0 +1,12 @@
+<%= f.label :name %>
+<%= f.text_field :name %><br><br>
+
+
+<h3> Pick a Location </h3>
+<%= f.collection_select :location_id, Location.all, :id, :name, { prompt: "Please select a location" } %>
+
+<h3> Add a New Location </h3>
+<%= f.fields_for :location do |l| %>
+<%= l.label :name %>
+<%= l.text_field :name %><br><br>
+<% end %>
