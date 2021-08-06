@@ -5,12 +5,9 @@ class RestaurantsController < ApplicationController
     def index
         @restaurants = Restaurant.order_by_location
 
-        @restaurants = Restaurant.location.where(["name LIKE ?","%#{params[:name]}%"])
-        if @restaurants.empty?
-            redirect_to restaurants_path
-        else
-            redirect_to restaurant_path(@restaurant)
-        end 
+        if params[:query]
+        @restaurants = Restaurant.joins(:location).where(["locations.name LIKE ?","%#{params[:query]}%"]) #turn to class method and then into scope method
+        end
     end
 
 
