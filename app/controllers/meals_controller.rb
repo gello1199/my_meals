@@ -7,8 +7,8 @@ class MealsController < ApplicationController
     end
 
     def show
-        @meal = Meal.find_by_id(params[:id])
-        @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        @meal = Meal.find(params[:id])
+        @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     def new
@@ -40,7 +40,6 @@ class MealsController < ApplicationController
         # byebug
         @meal = Meal.find_by_id(params[:id])
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
-        meal_restrictions
          if @meal.update(meal_params)
             redirect_to restaurant_meal_path(@restaurant, @meal)
          else
