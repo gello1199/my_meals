@@ -12,15 +12,18 @@
 
 
   <body>
-  
 
+  <%= render partial: 'layouts/nav' %>
 
-<% flash.each do |type, msg| %>
+<!-- <% flash.each do |type, msg| %>
   <div class="error_message">
     <%= msg %>
   </div>
-<% end %>
+<% end %> -->
+
+
 
     <%= yield %>
+
   </body>
 </html>

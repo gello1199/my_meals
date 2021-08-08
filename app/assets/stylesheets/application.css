@@ -38,19 +38,24 @@
   }
 
   div.topnav-right {
+      padding: 50px;
       float: right;
   }
   
   .topnav-left {
     width: 10%;
+    float: left;
+    position: relative;
   }
 
   .topnav-left img {
     width: 100%;
     height: auto;
+    padding: -50px;
   }
 
   .error_message {
     color: red;
   }
+
 
