@@ -51,7 +51,7 @@
   .topnav-left img {
     width: 100%;
     height: auto;
-    padding: -50px;
+    /* padding: -50px; */
   }
 
   .error_message {
