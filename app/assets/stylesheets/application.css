@@ -43,7 +43,7 @@
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px;
+    padding: 20px;
     text-decoration: none;
   }
   
@@ -65,7 +65,7 @@
     width: 100%;
     height: 100%;
     margin: -40%;
-    padding: 10px 0 0 30px;
+    padding: 15px 0 0 30px;
   }
 
   .error_message {
