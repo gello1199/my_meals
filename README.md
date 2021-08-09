@@ -17,8 +17,11 @@ Or install it yourself as:
 $ gem install mymeals
 
 To run the program:
+
 rails s
+
 Usage
+
 To start, run bundle install to make sure all of the necessary gems have been installed successfully.
 
 Next, run rails s to be able to view the app on your localhost:3000.
@@ -43,10 +46,10 @@ After checking out the repo, run bundle install to install dependencies.
 To install this gem onto your local machine, run bundle exec rake install. To release a new version, update the version number in version.rb, and then run bundle exec rake release, which will create a git tag for the version, push git commits and the created tag, and push the .gem file to rubygems.org.
 
 Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/nhl_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mymeals. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
 
 License
 The gem is available as open source under the terms of the MIT License.
 
 Code of Conduct
-Everyone interacting in the SinatraBookLibraryProject project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+Everyone interacting in the MyMeals project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
