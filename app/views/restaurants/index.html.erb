@@ -1,7 +1,7 @@
 <h1>All Restaurants</h1>
 
 <%= form_with url: "/restaurants", method: :get do |form| %>
-  <%= form.label :query, "Search for:" %>
+  <%= form.label :query, "Search by city:" %>
   <%= form.text_field :query %>
   <%= form.submit "Search" %>
   <br><br>
