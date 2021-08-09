@@ -2,11 +2,9 @@
   <div id="error_explanation">
     <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
 
-    <ul>
       <% @meal.errors.each do |error| %>
-        <li><%= error.full_message %></li>
+       <%= error.full_message %> <br><br>
       <% end %>
-    </ul>
   </div>
 <% end %>
 

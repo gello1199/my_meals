@@ -4,12 +4,11 @@
   <%= form.label :query, "Search for:" %>
   <%= form.text_field :query %>
   <%= form.submit "Search" %>
+  <br><br>
 <% end %>
 
-<ul>
 <% @restaurants.each do |f| %>
-<li> <%= link_to f.name, restaurant_path(f) %> - <%= f.location.name %> </li>
+<%= link_to f.name, restaurant_path(f) %> - <%= f.location.name %> <br><br>
 <% end %>
-</ul>
 
 <%= link_to "Make a New Entry", new_restaurant_path %>

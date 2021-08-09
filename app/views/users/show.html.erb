@@ -5,9 +5,8 @@
 <% if @user.restaurants.empty? %>
 <h3>You haven't entered any restaurants yet!</h3>
 <% end %>
-<ul>
+
 <% @user.restaurants.uniq.each do |r| %>
-<li> <%= link_to r.name, restaurant_path(r) %> - <%= r.location.name %> </li>
+<%= link_to r.name, restaurant_path(r) %> - <%= r.location.name %><br><br>
 
 <% end %>
-</ul>

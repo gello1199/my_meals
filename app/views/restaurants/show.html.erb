@@ -6,9 +6,7 @@
 
 <h3>MyMeals: </h3>
 <% @restaurant.meals.each do |m| %>
-<ul>
-<li> <%= link_to m.name, restaurant_meal_path(@restaurant, m) %> </li>
-</ul>
+<%= link_to m.name, restaurant_meal_path(@restaurant, m) %> <br><br>
 <% end %>
 
 
