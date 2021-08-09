@@ -1,6 +1,5 @@
-# README
+# MyMeals
 
-MyMeals
 Welcome to the MyMeals app! The app where you can store all of your restaurants and meals from your travels. In this application, you will be able to have your own secure account by either using the signup form or signing in through the Github Omniauth. Once your account is created, you will be directed to the User's dashboard where you can see all of your restaurant submissions. You can create, edit and delete restaurants and meals. You can also visit the restaurants page, where you will find, not only your submissions, but restaurants and meals from other users. You can search by city to view restaurants in the city you're visiting.
 
 Installation
