@@ -27,11 +27,11 @@
   
  }
 
- .field_with_errors {
+ /* .field_with_errors {
      color: white;
      background-color: red;
      display: inline-block;
- }
+ } */
 
  div.scrollmenu {
     background-color: #333;
@@ -63,8 +63,9 @@
 
   .topnav-left img {
     width: 100%;
-    height: auto;
-    padding: -50px;
+    height: 100%;
+    margin: -40%;
+    padding: 10px 0 0 30px;
   }
 
   .error_message {
