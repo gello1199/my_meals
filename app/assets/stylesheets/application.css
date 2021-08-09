@@ -24,8 +24,11 @@
    margin-right: 25%;
    margin-left: 25%;
   border-style: solid;
-  
  }
+
+ .error_message {
+  color: red;
+}
 
  /* .field_with_errors {
      color: white;
@@ -68,9 +71,20 @@
     padding: 15px 0 0 30px;
   }
 
-  .error_message {
-    color: red;
-  }
+ .restaurants {
+   border-style: ridge;
+   margin-left: 25%;
+   margin-right: 25%;
+   padding-top: 10px;
+
+ }
+
+ .meals {
+   border-style: ridge;
+   margin-left: 25%;
+   margin-right: 25%;
+   padding-top: 10px;
+ }
 
 
 

@@ -5,10 +5,11 @@
 
 
 <h3>MyMeals: </h3>
+<div class="restaurants">
 <% @restaurant.meals.each do |m| %>
 <%= link_to m.name, restaurant_meal_path(@restaurant, m) %> <br><br>
 <% end %>
-
+</div>
 
 <%= link_to "Add a New Meal", new_restaurant_meal_path(@restaurant) %><br><br>
 

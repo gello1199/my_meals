@@ -6,7 +6,10 @@
 <h3>You haven't entered any restaurants yet!</h3>
 <% end %>
 
-<% @user.restaurants.uniq.each do |r| %>
-<%= link_to r.name, restaurant_path(r) %> - <%= r.location.name %><br><br>
 
+<% @user.restaurants.uniq.each do |r| %>
+<div class="restaurants">
+<%= link_to r.name, restaurant_path(r) %> - <%= r.location.name %><br><br>
+</div>
 <% end %>
+

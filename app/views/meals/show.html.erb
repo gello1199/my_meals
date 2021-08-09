@@ -2,10 +2,10 @@
 
 <h1>Meals</h1>
 
-<p>
-    Name: <%= @meal.name %><br>
-    Description:<%= @meal.description %>
-</p>
+<div class="meals">
+    Name: <%= @meal.name %><br><br>
+    Description: <%= @meal.description %><br><br>
+</div>
 
 <% if @meal.user == current_user %>
 
