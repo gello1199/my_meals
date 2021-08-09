@@ -18,19 +18,19 @@ class RestaurantsController < ApplicationController
     def new
         @restaurant = Restaurant.new
         @restaurant.build_location
-        @restaurant.meals.build
+        2.times{@restaurant.meals.build}
+
     end
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
-        @restaurant.meals.each do |m|
-            m.user = current_user
-        end
-        # byebug
+        @restaurant.meals.each {|m| m.user = current_user}
+
         if @restaurant.save
         redirect_to restaurants_path
         else 
             @restaurant.build_location
+            2.times{@restaurant.meals.build}
             render :new
         end
     end
