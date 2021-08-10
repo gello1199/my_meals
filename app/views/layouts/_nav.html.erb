@@ -8,7 +8,7 @@
             <% if !logged_in? %>
             <%= link_to "Signup", signup_path %>
             <%= link_to "Login", login_path %>
-            <%= button_to "Sign in with Github", '/auth/github'%><br><br>
+            <%= button_to "Sign in with Github", '/auth/github'%><br>
             <% else %>
             <%= link_to "Home", user_path(current_user) %>
             <%= link_to "Add a Restaurant", new_restaurant_path %>

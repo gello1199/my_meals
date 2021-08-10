@@ -3,13 +3,13 @@
 <h2>Location: <%= @restaurant.location.name %> </h2>
 
 
-
 <h3>MyMeals: </h3>
-<div class="restaurants">
 <% @restaurant.meals.each do |m| %>
+<div class="restaurants">
 <%= link_to m.name, restaurant_meal_path(@restaurant, m) %> <br><br>
-<% end %>
 </div>
+<% end %>
+<br><br>
 
 <%= link_to "Add a New Meal", new_restaurant_meal_path(@restaurant) %><br><br>
 
