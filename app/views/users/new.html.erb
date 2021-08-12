@@ -1,16 +1,6 @@
 <h1>Sign Up to MyMeals</h1>
 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-    
-      <% @user.errors.each do |error| %>
-        <%= error.full_message %><br>
-      <% end %>
-    
-  </div>
-<% end %>
+<%= render partial: 'layouts/error', locals: {object: @user}  %>
 
 <%= form_for(@user, url: signup_path) do |f| %>
 
