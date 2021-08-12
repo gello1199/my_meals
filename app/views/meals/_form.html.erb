@@ -1,12 +1,4 @@
-<% if @meal.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
-
-      <% @meal.errors.each do |error| %>
-       <%= error.full_message %> <br><br>
-      <% end %>
-  </div>
-<% end %>
+<%= render partial: 'layouts/error', locals: {object: @meal}  %>
 
 <%= form_for ([@restaurant, @meal]) do |f| %>
 <%= f.hidden_field :restaurant_id, value: @restaurant.id %>

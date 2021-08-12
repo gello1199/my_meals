@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
         @restaurants = Restaurant.order_by_location
 
         if params[:query]
-        @restaurants = Restaurant.joins(:location).where(["locations.name LIKE ?","%#{params[:query]}%"]) #turn to class method and then into scope method
+        @restaurants = Restaurant.search_by_location(params[:query])
         end
     end
 

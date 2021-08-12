@@ -13,14 +13,14 @@ class MealsController < ApplicationController
 
     def new
         @restaurant = Restaurant.find_by_id(params[:restaurant_id])
-        @meal = @restaurant.meals.build
+        @meal = @restaurant.meals.build #meal gets created, then saved in my hidden_fields where it's being assigned to restaurant_id
     end
 
     def create
         @meal = Meal.new(meal_params)
         @meal.user = current_user
-        if params[:restaurant_id]
-            @restaurant = Restaurant.find_by_id(params[:restaurant_id])
+        if params[:restaurant_id] #params from url are getting passed
+            @restaurant = Restaurant.find_by_id(params[:restaurant_id]) 
         end
         # byebug
         if @meal.save
