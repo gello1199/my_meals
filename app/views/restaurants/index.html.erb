@@ -7,6 +7,8 @@
   <br><br>
 <% end %>
 
+<%= link_to "Reverse Sort", restaurants_reverse_order_path %><br><br>
+
 <% @restaurants.each do |f| %>
 <div class="restaurants">
 <%= link_to f.name, restaurant_path(f) %> - <%= f.location.name %> <br><br>
@@ -15,3 +17,9 @@
 <br><br>
 
 <%= link_to "Make a New Entry", new_restaurant_path %>
+
+<!-- #button sorted by reverse order
+#button on page
+#link to root to controller action
+#controller logic
+#send request -->

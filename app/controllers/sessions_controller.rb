@@ -37,6 +37,8 @@ class SessionsController < ApplicationController
         render layout: "signup"
     end
 
+    private 
+
     def auth
         request.env['omniauth.auth']
       end

@@ -52,6 +52,11 @@ class RestaurantsController < ApplicationController
         redirect_to restaurants_path
     end
 
+    def reverse_order
+        @restaurants = Restaurant.order_by_location.reverse
+        render :index
+    end
+
     private
 
     def restaurant_params
